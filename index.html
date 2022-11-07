@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Божхона тест</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+
+
+        <div class="menu-box custom-box">
+            <!-- <div class=" header-box">
+                <div class="uzGerb">
+                    <img class="gerb" src="./img/gerb.png" alt="">
+                </div>
+                <div class="center-box">
+                    <h3>БОЖХОНА ҲОДИМЛАРИ </h3>
+                    <h3>УЧУН</h3>
+                    <h1>ТEСТ САВОЛЛАРИ</h1>
+                    <h3>ТЎПЛАМИ</h3>
+                </div>
+                <div class="bojGerb">
+                    <img class="gerb" src="./img/bojxona-gerb.png" alt="">
+                </div>
+            </div>
+            <br>
+
+            <br> -->
+            <table>
+                <tr>
+                    <th colspan="3">
+                        <h3>Testlar Toplami</h1>
+                    </th>
+                </tr>
+                <tr>
+                    <th>№</th>
+                    <th>Mavzu:</th>
+                    <th>O'tish:</th>
+                </tr>
+                <!-- <tr>
+                    <td>00</td>
+                    <td>Random quiz (25/456) - пастаги мавзулаштирилган тест саволларини ўзида жамлаган бўлиб базадаги
+                        саволлар сони 456 та ва Рандом функция бизга ундан 25 та саволни талнлаб беради.</td>
+                    <td><a href="./quiz-html/quiz0.html">Ўтинг!</a></td>
+                </tr> -->
+
+
+                <tr>
+                    <td>03</td>
+                    <td><label for="eewbook03">4000EEW-03</label>
+                        <select name="eewbook03" id="eewbook03">
+                            <option value="quiz00">Unit00</option>
+                            <option value="quiz01">Unit01</option>
+                            <option value="quiz02">Unit02</option>
+                            <option value="quiz03">Unit03</option>
+                            <option value="quiz04">Unit04</option>
+                            <option value="quiz05">Unit05</option>
+                        </select>
+                    </td>
+                    <td>
+                        <a id='eewbook03-a' href="./quiz-html/eew4000book03/quiz00.html">o'ting!</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>04</td>
+                    <td><label for="eewbook04">4000EEW-04</label>
+                        <select name="eewbook04" id="eewbook04">
+                            <option value="quiz00">Unit00</option>
+                            <option value="quiz01">Unit01</option>
+                            <option value="quiz02">Unit02</option>
+                            <option value="quiz03">Unit03</option>
+                            <option value="quiz04">Unit04</option>
+                            <option value="quiz05">Unit05</option>
+                        </select>
+                    </td>
+                    <td>
+                        <a id='eewbook04-a' href="./quiz-html/eew4000book04/quiz00.html">o'ting!</a>
+                    </td>
+                </tr>
+
+            </table>
+            <!-- <div class="footer-box">
+                <div class="footer">
+                    <div><b>Website Developer:</b> <i>Rakhmatillo Rustamov</i></div>
+                    <div>
+                        <b>Comments For Grammar Mistakes:</b> <a href="https://t.me/RakhmatulloRR"><img
+                                src="./img/Telegram-Icon.png" width="25px" alt=""></a>
+                    </div>
+                    <div>
+                        <b>Website Developer Portfolio Website:</b> <a href="https://rrr-porfolio.netlify.app/"><img
+                                src="./img/netlify.png" width="25px" alt=""></a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+    <script>
+        // 05
+        const eewbook03 = document.querySelector('#eewbook03');
+        const eewbook03a = document.querySelector('#eewbook03-a');
+        eewbook03.addEventListener('change', (e) => {
+            console.log(e.target.value);
+            eewbook03a.href = './quiz-html/eew4000book03/' + e.target.value + '.html';
+        })
+        //04
+        const eewbook04 = document.querySelector('#eewbook04');
+        const eewbook04a = document.querySelector('#eewbook04-a');
+        eewbook04.addEventListener('change', (e) => {
+            console.log(e.target.value);
+            eewbook04a.href = './quiz-html/eew4000book04/' + e.target.value + '.html';
+        })
+    </script>
+</body>
+
+</html>
