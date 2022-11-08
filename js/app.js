@@ -101,7 +101,7 @@ function getNewQuestion() {
   questionCounter++;
 }
 //// console.log();
-console.log(window.location.pathname);
+// console.log(window.location.pathname);
 
 function next() {
   console.log(questionCounter);

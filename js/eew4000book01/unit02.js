@@ -1046,8 +1046,4 @@ const quiz = [
   },
 ];
 
-console.log(quiz.length); // 55
-console.log(quiz.length); // 55
 
-// === in gitBash: ====
-// node js/question13.js

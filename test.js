@@ -9,7 +9,6 @@ const obj = arr[2];
 const index = arr.indexOf(obj);
 arr.splice(index, 1);
 
-// console.log(arr); // 2
 
 const fleshcard = [
   {

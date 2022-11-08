@@ -10321,9 +10321,8 @@ const quiz = [
   },
 ];
 
-console.log(quiz.length); // 55
-console.log(quiz.length); // 55
-console.log(quiz.filter((item) => item.quizNumber === 6));
+
+// console.log(quiz.filter((item) => item.quizNumber === 6));
 
 // === in gitBash: ====
 // node js/question13.js

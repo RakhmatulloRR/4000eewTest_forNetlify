@@ -123,24 +123,21 @@
     <script>
         // 03
         const eewbook01 = document.querySelector('#eewbook01');
-        console.log(eewbook01);
         const eewbook01a = document.querySelector('#eewbook01-a');
         eewbook01.addEventListener('change', (e) => {
-            console.log(e.target.value, e);
+
             eewbook01a.href = './quiz-html/eew4000book01/' + e.target.value + '.html';
         });
         // 03
         const eewbook03 = document.querySelector('#eewbook03');
         const eewbook03a = document.querySelector('#eewbook03-a');
         eewbook03.addEventListener('change', (e) => {
-            console.log(e.target.value);
             eewbook03a.href = './quiz-html/eew4000book03/' + e.target.value + '.html';
         });
         //04
         const eewbook04 = document.querySelector('#eewbook04');
         const eewbook04a = document.querySelector('#eewbook04-a');
         eewbook04.addEventListener('change', (e) => {
-            console.log(e.target.value);
             eewbook04a.href = './quiz-html/eew4000book04/' + e.target.value + '.html';
         });
     </script>
