@@ -5,9 +5,7 @@
 const questionNumber = document.querySelector('.question-number');
 const questionText = document.querySelector('.question-text');
 const optionContainer = document.querySelector('.option-container');
-const answersIndicatorContainer = document.querySelector(
-  '.answerIndexs-indicator'
-);
+const answersIndicatorContainer = document.querySelector('.answers-indicator');
 const homeBox = document.querySelector('.home-box');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
@@ -46,7 +44,12 @@ function getNewQuestion() {
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   //// console.log(currentQuestion.answerIndex);
-  questionText.innerHTML = currentQuestion.en;
+  questionText.innerHTML =
+    currentQuestion.en +
+    ' ' +
+    ` <span style="color: red;">` +
+    currentQuestion.pron +
+    `</span>`;
   // get the position of 'CurrentQuestion' from the availableQuestions Array;
   const currentPositionOfCurrentQuestion =
     availableQuestions.indexOf(currentQuestion);
@@ -54,13 +57,15 @@ function getNewQuestion() {
   const curPosit1 = currentPositionOfCurrentQuestion;
   // remove the currentQuestion from the availableQuestions Arrat, so that  the question does not repeat.
   availableQuestions.splice(curPosit1, 1);
+
   // show quiestion img if the img proporty exists
-  if (currentQuestion.hasOwnProperty('image')) {
-    const img = document.createElement('IMG');
-    //// console.log(currentQuestion.image);
-    img.src = currentQuestion.image;
-    questionText.append(img);
-  }
+  // if (currentQuestion.hasOwnProperty('image')) {
+  //   const img = document.createElement('IMG');
+  //   //// console.log(currentQuestion.image);
+  //   img.src = currentQuestion.image;
+  //   questionText.append(img);
+  // }
+
   // set options
   // get the length ot options
   const optionsLength = currentQuestion.uzOptions.length;

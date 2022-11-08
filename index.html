@@ -57,20 +57,20 @@
                     <td>01</td>
                     <td><label for="eewbook01">4000EEW-01</label>
                         <select name="eewbook01" id="eewbook01">
-                            <option value="quiz00">Unit00</option>
-                            <option value="quiz01">Unit01</option>
-                            <option value="quiz02">Unit02</option>
-                            <option value="quiz03">Unit03</option>
-                            <option value="quiz04">Unit04</option>
-                            <option value="quiz05">Unit05</option>
-                            <option value="quiz06">Unit06</option>
+                            <option value="quiz00">QuizAll</option>
+                            <option value="quiz01">Quiz-01</option>
+                            <option value="quiz02">Quiz-02</option>
+                            <option value="quiz03">Quiz-03</option>
+                            <option value="quiz04">Quiz-04</option>
+                            <option value="quiz05">Quiz-05</option>
+                            <option value="quiz06">Quiz-06</option>
                         </select>
                     </td>
                     <td>
                         <a id='eewbook01-a' href="./quiz-html/eew4000book01/quiz00.html">o'ting!</a>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>03</td>
                     <td><label for="eewbook03">4000EEW-03</label>
                         <select name="eewbook03" id="eewbook03">
@@ -79,12 +79,12 @@
                             <option value="quiz02">Unit02</option>
                             <option value="quiz03">Unit03</option>
                             <option value="quiz04">Unit04</option>
-                            <!-- <option value="quiz05">Unit05</option> -->
-                        </select>
-                    </td>
-                    <td>
-                        <a id='eewbook03-a' href="./quiz-html/eew4000book03/quiz00.html">o'ting!</a>
-                    </td>
+                            <option value="quiz05">Unit05</option>
+                </select>
+                </td>
+                <td>
+                    <a id='eewbook03-a' href="./quiz-html/eew4000book03/quiz00.html">o'ting!</a>
+                </td>
                 </tr>
 
                 <tr>
@@ -102,8 +102,7 @@
                     <td>
                         <a id='eewbook04-a' href="./quiz-html/eew4000book04/quiz00.html">o'ting!</a>
                     </td>
-                </tr>
-
+                </tr> -->
             </table>
             <!-- <div class="footer-box">
                 <div class="footer">
@@ -121,21 +120,29 @@
         </div>
 
     </div>
-    <script src='./test.js'>
-        // 05
+    <script>
+        // 03
+        const eewbook01 = document.querySelector('#eewbook01');
+        console.log(eewbook01);
+        const eewbook01a = document.querySelector('#eewbook01-a');
+        eewbook01.addEventListener('change', (e) => {
+            console.log(e.target.value, e);
+            eewbook01a.href = './quiz-html/eew4000book01/' + e.target.value + '.html';
+        });
+        // 03
         const eewbook03 = document.querySelector('#eewbook03');
         const eewbook03a = document.querySelector('#eewbook03-a');
         eewbook03.addEventListener('change', (e) => {
             console.log(e.target.value);
             eewbook03a.href = './quiz-html/eew4000book03/' + e.target.value + '.html';
-        })
+        });
         //04
         const eewbook04 = document.querySelector('#eewbook04');
         const eewbook04a = document.querySelector('#eewbook04-a');
         eewbook04.addEventListener('change', (e) => {
             console.log(e.target.value);
             eewbook04a.href = './quiz-html/eew4000book04/' + e.target.value + '.html';
-        })
+        });
     </script>
 </body>
 

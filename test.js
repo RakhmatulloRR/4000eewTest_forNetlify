@@ -9,7 +9,7 @@ const obj = arr[2];
 const index = arr.indexOf(obj);
 arr.splice(index, 1);
 
-console.log(arr); // 2
+// console.log(arr); // 2
 
 const fleshcard = [
   {
@@ -7762,4 +7762,4 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 // console.log(words);
-console.log(JSON.stringify(words));
+// console.log(JSON.stringify(words));
