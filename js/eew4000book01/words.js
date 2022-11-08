@@ -1,8 +1,3 @@
-// **Question-13**
-// *tayyor*
-// # 1: Yuqoridagi hammat testlar (jami 460)
-'use strick';
-// Array of Object;
 const quiz = [
   {
     en: 'afraid',
@@ -10320,10 +10315,3 @@ const quiz = [
     quizNumber: 10,
   },
 ];
-
-console.log(quiz.length); // 55
-console.log(quiz.length); // 55
-console.log(quiz.filter((item) => item.quizNumber === 6));
-
-// === in gitBash: ====
-// node js/question13.js

@@ -2,15 +2,15 @@
 // const {quiz} = require('./question');
 
 //* DOM elements
-const questionNumber = document.querySelector('.question-number');
-const questionText = document.querySelector('.question-text');
-const optionContainer = document.querySelector('.option-container');
-const answersIndicatorContainer = document.querySelector('.answers-indicator');
-const homeBox = document.querySelector('.home-box');
-const quizBox = document.querySelector('.quiz-box');
-const resultBox = document.querySelector('.result-box');
+const questionNumber = documentenuerySelector('enuestion-number');
+const questionText = documentenuerySelector('enuestion-text');
+const optionContainer = documentenuerySelector('.option-container');
+const answersIndicatorContainer = documentenuerySelector('.answers-indicator');
+const homeBox = documentenuerySelector('.home-box');
+const quizBox = documentenuerySelector('enuiz-box');
+const resultBox = documentenuerySelector('.result-box');
 
-const scripts = document.querySelectorAll('script');
+const scripts = documentenuerySelectorAll('script');
 
 //* Defining "let" variables
 let questionCounter = 0;
@@ -44,7 +44,7 @@ function getNewQuestion() {
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   //// console.log(currentQuestion.answer);
-  questionText.innerHTML = currentQuestion.q;
+  questionText.innerHTML = currentQuestion.en;
   // get the position of 'CurrentQuestion' from the availableQuestions Array;
   const currentPositionOfCurrentQuestion =
     availableQuestions.indexOf(currentQuestion);
@@ -52,24 +52,24 @@ function getNewQuestion() {
   const curPosit1 = currentPositionOfCurrentQuestion;
   // remove the currentQuestion from the availableQuestions Arrat, so that  the question does not repeat.
   availableQuestions.splice(curPosit1, 1);
-  // show quiestion img if the img proporty exists
-  if (currentQuestion.hasOwnProperty('img')) {
-    const img = document.createElement('IMG');
-    //// console.log(currentQuestion.img);
-    img.src = currentQuestion.img;
-    questionText.append(img);
+  // show quiestion image if the image proporty exists
+  if (currentQuestion.hasOwnProperty('image')) {
+    const image = document.createElement('img');
+    //// console.log(currentQuestion.image);
+    image.src = currentQuestion.image;
+    questionText.append(image);
   }
-  // set options
-  // get the length ot options
-  const optionsLength = currentQuestion.options.length;
-  // push options into availableOptions Array
-  for (let i = 0; i < optionsLength; i++) {
+  // set uzOptions
+  // get the length ot uzOptions
+  const uzOptionsLength = currentQuestion.uzOptions.length;
+  // push uzOptions into availableOptions Array
+  for (let i = 0; i < uzOptionsLength; i++) {
     availableOptions.push(i);
   }
-  // create options in html
+  // create uzOptions in html
   optionContainer.innerHTML = '';
   let animationDelay = 0.15;
-  for (let i = 0; i < optionsLength; i++) {
+  for (let i = 0; i < uzOptionsLength; i++) {
     // random option
     const optionIndex = Math.floor(Math.random() * availableOptions.length);
     const currentOption = availableOptions[optionIndex];
@@ -83,7 +83,7 @@ function getNewQuestion() {
     //// console.log(currentOption);
     //// console.log(availableOptions);
     const option = document.createElement('DIV');
-    option.innerHTML = currentQuestion.options[currentOption];
+    option.innerHTML = currentQuestion.uzOptions[currentOption];
     option.id = currentOption;
     option.style.animationDelay = animationDelay + 's';
     animationDelay += 0.15;
@@ -117,7 +117,7 @@ function getResult(optionElement) {
   //// console.log(id);
   //// console.log(currentQuestion);
   // get the answer by comparing the id of clecked option
-  if (id === currentQuestion.answer) {
+  if (id === currentQuestion.answerIndex) {
     // set the green color to the correct option
     optionElement.classList.add('correct');
     // add the correct mark to the indicator
@@ -129,20 +129,22 @@ function getResult(optionElement) {
     // add the incorrect mark to the indicator
     updateAnswerIndicator('wrong');
     // if the answer is incorrect then show the correct option by adding green color
-    const optionsLength = optionContainer.children.length;
-    for (let i = 0; i < optionsLength; i++) {
-      if (parseInt(optionContainer.children[i].id) === currentQuestion.answer) {
+    const uzOptionsLength = optionContainer.children.length;
+    for (let i = 0; i < uzOptionsLength; i++) {
+      if (
+        parseInt(optionContainer.children[i].id) === currentQuestion.answerIndex
+      ) {
         optionContainer.children[i].classList.add('correct');
       }
     }
   }
   attempt++;
-  unclickableOptions();
+  unclickableuzOptions();
 }
-// make all the options unclickable once the user select a option (RESTRICT THE USER TO CHANGE THE OPTION AGAIN)
-function unclickableOptions() {
-  const optionsLength = optionContainer.children.length;
-  for (let i = 0; i < optionsLength; i++) {
+// make all the uzOptions unclickable once the user select a option (RESTRICT THE USER TO CHANGE THE OPTION AGAIN)
+function unclickableuzOptions() {
+  const uzOptionsLength = optionContainer.children.length;
+  for (let i = 0; i < uzOptionsLength; i++) {
     optionContainer.children[i].classList.add('already-answered');
   }
 }
@@ -206,14 +208,14 @@ function goToStart() {
 
 // get the quiz result
 function quizResult() {
-  resultBox.querySelector('.total-question').innerHTML = quiz.length;
-  resultBox.querySelector('.total-attempt').innerHTML = attempt;
-  resultBox.querySelector('.total-correct').innerHTML = correctAnswers;
-  resultBox.querySelector('.total-wrong').innerHTML = attempt - correctAnswers;
+  resultBoxenuerySelector('.total-question').innerHTML = quiz.length;
+  resultBoxenuerySelector('.total-attempt').innerHTML = attempt;
+  resultBoxenuerySelector('.total-correct').innerHTML = correctAnswers;
+  resultBoxenuerySelector('.total-wrong').innerHTML = attempt - correctAnswers;
   const percentage = (correctAnswers / quiz.length) * 100;
-  resultBox.querySelector('.percentage').innerHTML =
+  resultBoxenuerySelector('.percentage').innerHTML =
     percentage.toFixed(2) + '%';
-  resultBox.querySelector('.total-score').innerHTML =
+  resultBoxenuerySelector('.total-score').innerHTML =
     correctAnswers + ' / ' + quiz.length;
 }
 
@@ -233,10 +235,10 @@ function startQuiz() {
 
 window.onload = function () {
   if (window.location.pathname === '/quiz-html/quiz0.html') {
-    homeBox.querySelector(
+    homeBoxenuerySelector(
       '.total-questions'
     ).innerHTML = ` 25  (Random: 25 / ${quiz.length})`;
   } else {
-    homeBox.querySelector('.total-questions').innerHTML = quiz.length;
+    homeBoxenuerySelector('.total-questions').innerHTML = quiz.length;
   }
 };

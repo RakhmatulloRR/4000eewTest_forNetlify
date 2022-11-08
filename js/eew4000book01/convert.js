@@ -7715,12 +7715,51 @@ fleshcard.forEach((item) => {
   }
 });
 let num = 1001;
+let a = 1;
+let b = 20;
+let a1 = 1;
+let b1 = 60;
 for (let i = 0; i < words.length; i++) {
   const word = words[i];
+  word.bookNumber = 1;
   word.id = num;
   word.uz = uz[i];
   word.image = num + '.jpg';
   word.sound = num + '.mp3';
   num++;
+
+  word.uzOptions = [
+    uz[i],
+    uz[getRandomInt(600)],
+    uz[getRandomInt(600)],
+    uz[getRandomInt(600)],
+  ];
+  word.enOptions = [
+    words[i].en,
+    words[getRandomInt(600)].en,
+    words[getRandomInt(600)].en,
+    words[getRandomInt(600)].en,
+  ];
+  word.answerIndex = 0;
+
+  if (i < b) {
+    word.unitNumber = a;
+  } else {
+    word.unitNumber = a + 1;
+    b += 20;
+    a++;
+  }
+  if (i < b1) {
+    word.quizNumber = a1;
+  } else {
+    word.quizNumber = a1 + 1;
+    b1 += 60;
+    a1++;
+  }
 }
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+// console.log(words);
 console.log(JSON.stringify(words));
