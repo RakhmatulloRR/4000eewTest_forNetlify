@@ -54,10 +54,9 @@ function getNewQuestion() {
     questionNumber.innerHTML =
       questionCounter +
       1 +
-      '-с |' +
-      ' Савлоллар ' +
+      '/' +
       quiz.length +
-      ' та | book-' +
+      ' | book-' +
       currentQuestion.bookNumber +
       ' | unit-' +
       currentQuestion.unitNumber;
