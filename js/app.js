@@ -1,14 +1,24 @@
 'use strick';
-// const {quiz} = require('./question');
+const bookNumber = +localStorage.getItem('bookNumber');
+const quizNumber = localStorage.getItem('quizNumber');
+const quiz = quizAll.filter((w) => {
+  return (
+    w.bookNumber === bookNumber &&
+    (w.quizNumber === +quizNumber || quizNumber.toString() === 'all')
+  );
+});
 
 //* DOM elements
-const questionNumber = document.querySelector('.question-number');
+const questionNumber = document.querySelector('.question-number .number');
 const questionText = document.querySelector('.question-text');
+const questionDesc = document.querySelector('.question-desc');
+const questionExam = document.querySelector('.question-exam');
 const optionContainer = document.querySelector('.option-container');
 const answersIndicatorContainer = document.querySelector('.answers-indicator');
 const homeBox = document.querySelector('.home-box');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
+const textarea = document.querySelector('textarea');
 
 const scripts = document.querySelectorAll('script');
 
@@ -19,10 +29,11 @@ let availableQuestions = [];
 let availableOptions = [];
 let correctAnswers = 0;
 let attempt = 0;
+let unknownWords = [];
 
 // push the quiz array into availableQuestions Array.
 function setAvailableQuestions() {
-  console.log('quiz', quiz);
+  // console.log('quiz', quiz);
   const totalQuestion = quiz.length;
   for (let i = 0; i < totalQuestion; i++) {
     availableQuestions.push(quiz[i]);
@@ -31,18 +42,28 @@ function setAvailableQuestions() {
 
 // set question number, questin text and option
 function getNewQuestion() {
+  // get random question
+  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionIndex];
+
   // set question number
   if (window.location.pathname === '/quiz-html/quiz0.html') {
     questionNumber.innerHTML =
       questionCounter + 1 + '-с |' + ' Савлоллар ' + 25 + ' та';
   } else {
     questionNumber.innerHTML =
-      questionCounter + 1 + '-с |' + ' Савлоллар ' + quiz.length + ' та';
+      questionCounter +
+      1 +
+      '-с |' +
+      ' Савлоллар ' +
+      quiz.length +
+      ' та | book-' +
+      currentQuestion.bookNumber +
+      ' | unit-' +
+      currentQuestion.unitNumber;
   }
   // set question text
-  // get random question
-  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-  currentQuestion = availableQuestions[questionIndex];
+
   //// console.log(currentQuestion.answerIndex);
   questionText.innerHTML =
     currentQuestion.en +
@@ -50,10 +71,12 @@ function getNewQuestion() {
     ` <span style="color: red;">` +
     currentQuestion.pron +
     `</span>`;
+  questionDesc.innerHTML = currentQuestion.desc;
+  questionExam.innerHTML = '→ ' + currentQuestion.exam;
   // get the position of 'CurrentQuestion' from the availableQuestions Array;
   const currentPositionOfCurrentQuestion =
     availableQuestions.indexOf(currentQuestion);
-  console.log(currentPositionOfCurrentQuestion);
+  // console.log(currentPositionOfCurrentQuestion);
   const curPosit1 = currentPositionOfCurrentQuestion;
   // remove the currentQuestion from the availableQuestions Arrat, so that  the question does not repeat.
   availableQuestions.splice(curPosit1, 1);
@@ -80,7 +103,7 @@ function getNewQuestion() {
     // random option
     const optionIndex = Math.floor(Math.random() * availableOptions.length);
     const currentOption = availableOptions[optionIndex];
-    console.log('currentOption', currentOption, availableOptions);
+    // console.log('currentOption', currentOption, availableOptions);
     // get the position of 'CurrentOption' from the availableOptions Array;
     const currentPositionOfCurrentOption =
       availableOptions.indexOf(currentOption);
@@ -131,6 +154,7 @@ function getResult(optionElement) {
     updateAnswerIndicator('correct');
     correctAnswers++;
   } else {
+    unknownWords.push(currentQuestion.en);
     // set the red color to the incorrect option
     optionElement.classList.add('wrong');
     // add the incorrect mark to the indicator
@@ -224,6 +248,7 @@ function quizResult() {
     percentage.toFixed(2) + '%';
   resultBox.querySelector('.total-score').innerHTML =
     correctAnswers + ' / ' + quiz.length;
+  textarea.value = unknownWords.toString();
 }
 
 //* ==== STARTIN POINT ====
