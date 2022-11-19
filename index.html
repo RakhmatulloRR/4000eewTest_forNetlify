@@ -224,9 +224,9 @@
         // 01
         localStorage.setItem('quizNumber', 'All')
         localStorage.setItem('bookNumber', 1)
-        function getSelectedQuizNum() {
-            const quizNum = document.querySelector('.selected .quiz-num');
-            const bookNum = document.querySelector('.selected .book-num');
+        async function getSelectedQuizNum() {
+            const quizNum = await document.querySelector('.selected .quiz-num');
+            const bookNum = await document.querySelector('.selected .book-num');
             quizNum.innerHTML = localStorage.getItem('quizNumber') || 'All'
             bookNum.innerHTML = localStorage.getItem('bookNumber') || '1'
 
@@ -234,51 +234,51 @@
         getSelectedQuizNum();
         const eewbook01 = document.querySelector('#eewbook01');
         const eewbook01a = document.querySelector('#eewbook01-a');
-        eewbook01.addEventListener('click', (e) => {
+        eewbook01.addEventListener('click', async (e) => {
             console.log('object', e.target.value);
-            localStorage.setItem('bookNumber', 1);
-            localStorage.setItem('quizNumber', e.target.value);
-            getSelectedQuizNum();
+            await localStorage.setItem('bookNumber', 1);
+            await localStorage.setItem('quizNumber', e.target.value);
+            await getSelectedQuizNum();
         });
         // 02
         const eewbook02 = document.querySelector('#eewbook02');
         const eewbook02a = document.querySelector('#eewbook02-a');
-        eewbook02.addEventListener('click', (e) => {
-            localStorage.setItem('bookNumber', 2);
-            localStorage.setItem('quizNumber', e.target.value);
-            getSelectedQuizNum();
+        eewbook02.addEventListener('click', async (e) => {
+            await localStorage.setItem('bookNumber', 2);
+            await localStorage.setItem('quizNumber', e.target.value);
+            await getSelectedQuizNum();
         });
         // 03
         const eewbook03 = document.querySelector('#eewbook03');
         const eewbook03a = document.querySelector('#eewbook03-a');
-        eewbook03.addEventListener('click', (e) => {
-            localStorage.setItem('bookNumber', 3);
-            localStorage.setItem('quizNumber', e.target.value);
-            getSelectedQuizNum();
+        eewbook03.addEventListener('click', async (e) => {
+            await localStorage.setItem('bookNumber', 3);
+            await localStorage.setItem('quizNumber', e.target.value);
+            await getSelectedQuizNum();
         });
         // 04
         const eewbook04 = document.querySelector('#eewbook04');
         const eewbook04a = document.querySelector('#eewbook04-a');
-        eewbook04.addEventListener('click', (e) => {
-            localStorage.setItem('bookNumber', 4);
-            localStorage.setItem('quizNumber', e.target.value);
-            getSelectedQuizNum();
+        eewbook04.addEventListener('click', async (e) => {
+            await localStorage.setItem('bookNumber', 4);
+            await localStorage.setItem('quizNumber', e.target.value);
+            await getSelectedQuizNum();
         });
         // 05
         const eewbook05 = document.querySelector('#eewbook05');
         const eewbook05a = document.querySelector('#eewbook05-a');
-        eewbook05.addEventListener('click', (e) => {
-            localStorage.setItem('bookNumber', 5);
-            localStorage.setItem('quizNumber', e.target.value);
-            getSelectedQuizNum();
+        eewbook05.addEventListener('click', async (e) => {
+            await localStorage.setItem('bookNumber', 5);
+            await localStorage.setItem('quizNumber', e.target.value);
+            await getSelectedQuizNum();
         });
         // 06
         const eewbook06 = document.querySelector('#eewbook06');
         const eewbook06a = document.querySelector('#eewbook06-a');
-        eewbook06.addEventListener('click', (e) => {
-            localStorage.setItem('bookNumber', 6);
-            localStorage.setItem('quizNumber', e.target.value);
-            getSelectedQuizNum();
+        eewbook06.addEventListener('click', async (e) => {
+            await localStorage.setItem('bookNumber', 6);
+            await localStorage.setItem('quizNumber', e.target.value);
+            await getSelectedQuizNum();
         });
 
 // http://127.0.0.1:5500/index.html
