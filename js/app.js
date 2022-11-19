@@ -9,7 +9,10 @@ const quiz = quizAll.filter((w) => {
 });
 
 //* DOM elements
+const inputShow = document.querySelector(['input[name="show"']);
+const quizImg = document.querySelector(['img[alt="quiz-img"']);
 const questionNumber = document.querySelector('.question-number .number');
+const quizDesc = document.querySelector('.quiz-desc');
 const questionText = document.querySelector('.question-text');
 const questionDesc = document.querySelector('.question-desc');
 const questionExam = document.querySelector('.question-exam');
@@ -39,6 +42,16 @@ function setAvailableQuestions() {
     availableQuestions.push(quiz[i]);
   }
 }
+// show or hide the inage and desc of questions
+inputShow.addEventListener('click', (e) => {
+  // console.dir(e.target.checked);
+  console.log(quizImg);
+  if (e.target.checked) {
+    quizDesc.style = 'display: flex';
+  } else {
+    quizDesc.style = 'display: none';
+  }
+});
 
 // set question number, questin text and option
 function getNewQuestion() {
@@ -56,9 +69,11 @@ function getNewQuestion() {
       1 +
       '/' +
       quiz.length +
-      ' | book-' +
+      ' | quiz-' +
+      currentQuestion.quizNumber +
+      ' | ' +
       currentQuestion.bookNumber +
-      ' | unit-' +
+      '/' +
       currentQuestion.unitNumber;
   }
   // set question text
@@ -70,6 +85,14 @@ function getNewQuestion() {
     ` <span style="color: red;">` +
     currentQuestion.pron +
     `</span>`;
+  quizImg.src =
+    '../img/wordlist' +
+    currentQuestion.bookNumber +
+    '/' +
+    currentQuestion.id +
+    '_' +
+    currentQuestion.en +
+    '.jpg';
   questionDesc.innerHTML = currentQuestion.desc;
   questionExam.innerHTML = '→ ' + currentQuestion.exam;
   // get the position of 'CurrentQuestion' from the availableQuestions Array;
@@ -126,7 +149,7 @@ function getNewQuestion() {
 // console.log(window.location.pathname);
 
 function next() {
-  console.log(questionCounter);
+  // console.log(questionCounter);
   if (
     window.location.pathname == '/quiz-html/quiz0.html' &&
     questionCounter === 25
