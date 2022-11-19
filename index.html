@@ -43,8 +43,16 @@
                     </th>
                 </tr>
                 <tr>
+                    <td colspan="3">
+                        <h5 class='selected'>
+                            Quiz-<span class='quiz-num'>05</span>
+                            from Book-<span class='book-num'>02</span>
+                            is selected</h1>
+                    </td>
+                </tr>
+                <tr>
                     <th>№</th>
-                    <th>Mavzu: tanlang ⇓</th>
+                    <th>Book: Select ⇓</th>
                     <th>O'tish:</th>
                 </tr>
                 <!-- <tr>
@@ -61,7 +69,7 @@
                         <div>
                             <label for="eewbook01">4000EEW-01:</label>
                             <select name="eewbook01" id="eewbook01">
-                                <option value="0">QuizAll</option>
+                                <option value="All">QuizAll</option>
                                 <option value="1">Quiz-01</option>
                                 <option value="2">Quiz-02</option>
                                 <option value="3">Quiz-03</option>
@@ -85,7 +93,7 @@
                         <div>
                             <label for="eewbook02">4000EEW-02:</label>
                             <select name="eewbook02" id="eewbook02">
-                                <option value="0">QuizAll</option>
+                                <option value="All">QuizAll</option>
                                 <option value="1">Quiz-01</option>
                                 <option value="2">Quiz-02</option>
                                 <option value="3">Quiz-03</option>
@@ -109,7 +117,7 @@
                         <div>
                             <label for="eewbook03">4000EEW-03:</label>
                             <select name="eewbook03" id="eewbook03">
-                                <option value="0">QuizAll</option>
+                                <option value="All">QuizAll</option>
                                 <option value="1">Quiz-01</option>
                                 <option value="2">Quiz-02</option>
                                 <option value="3">Quiz-03</option>
@@ -133,7 +141,7 @@
                         <div>
                             <label for="eewbook04">4000EEW-04:</label>
                             <select name="eewbook04" id="eewbook04">
-                                <option value="0">QuizAll</option>
+                                <option value="All">QuizAll</option>
                                 <option value="1">Quiz-01</option>
                                 <option value="2">Quiz-02</option>
                                 <option value="3">Quiz-03</option>
@@ -158,7 +166,7 @@
                         <div>
                             <label for="eewbook05">4000EEW-05:</label>
                             <select name="eewbook05" id="eewbook05">
-                                <option value="0">QuizAll</option>
+                                <option value="All">QuizAll</option>
                                 <option value="1">Quiz-01</option>
                                 <option value="2">Quiz-02</option>
                                 <option value="3">Quiz-03</option>
@@ -182,7 +190,7 @@
                         <div>
                             <label for="eewbook06">4000EEW-06:</label>
                             <select name="eewbook06" value='all' id="eewbook06">
-                                <option value="0">QuizAll</option>
+                                <option value="All">QuizAll</option>
                                 <option value="1">Quiz-01</option>
                                 <option value="2">Quiz-02</option>
                                 <option value="3">Quiz-03</option>
@@ -214,12 +222,23 @@
     <!-- <script src='./wordsAll.js'></script> -->
     <script>
         // 01
+        localStorage.setItem('quizNumber', 'All')
+        localStorage.setItem('bookNumber', 1)
+        function getSelectedQuizNum() {
+            const quizNum = document.querySelector('.selected .quiz-num');
+            const bookNum = document.querySelector('.selected .book-num');
+            quizNum.innerHTML = localStorage.getItem('quizNumber') || 'All'
+            bookNum.innerHTML = localStorage.getItem('bookNumber') || '1'
+
+        }
+        getSelectedQuizNum();
         const eewbook01 = document.querySelector('#eewbook01');
         const eewbook01a = document.querySelector('#eewbook01-a');
         eewbook01.addEventListener('click', (e) => {
             console.log('object', e.target.value);
             localStorage.setItem('bookNumber', 1);
             localStorage.setItem('quizNumber', e.target.value);
+            getSelectedQuizNum();
         });
         // 02
         const eewbook02 = document.querySelector('#eewbook02');
@@ -227,6 +246,7 @@
         eewbook02.addEventListener('click', (e) => {
             localStorage.setItem('bookNumber', 2);
             localStorage.setItem('quizNumber', e.target.value);
+            getSelectedQuizNum();
         });
         // 03
         const eewbook03 = document.querySelector('#eewbook03');
@@ -234,6 +254,7 @@
         eewbook03.addEventListener('click', (e) => {
             localStorage.setItem('bookNumber', 3);
             localStorage.setItem('quizNumber', e.target.value);
+            getSelectedQuizNum();
         });
         // 04
         const eewbook04 = document.querySelector('#eewbook04');
@@ -241,6 +262,7 @@
         eewbook04.addEventListener('click', (e) => {
             localStorage.setItem('bookNumber', 4);
             localStorage.setItem('quizNumber', e.target.value);
+            getSelectedQuizNum();
         });
         // 05
         const eewbook05 = document.querySelector('#eewbook05');
@@ -248,6 +270,7 @@
         eewbook05.addEventListener('click', (e) => {
             localStorage.setItem('bookNumber', 5);
             localStorage.setItem('quizNumber', e.target.value);
+            getSelectedQuizNum();
         });
         // 06
         const eewbook06 = document.querySelector('#eewbook06');
@@ -255,12 +278,10 @@
         eewbook06.addEventListener('click', (e) => {
             localStorage.setItem('bookNumber', 6);
             localStorage.setItem('quizNumber', e.target.value);
+            getSelectedQuizNum();
         });
-        for (let i = 0; i < eewbook01.length; i++) {
-            if (eewbook01[i].value === localStorage.getItem('unitNumber') && eewbook01.name.slice(-1) === localStorage.getItem('bookNumber')) eewbook01[i].style = 'background: green'
 
-        }
-
+// http://127.0.0.1:5500/index.html
 
     </script>
 </body>

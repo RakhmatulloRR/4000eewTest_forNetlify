@@ -4,7 +4,7 @@ const quizNumber = localStorage.getItem('quizNumber');
 const quiz = quizAll.filter((w) => {
   return (
     w.bookNumber === bookNumber &&
-    (w.quizNumber === +quizNumber || quizNumber.toString() === '0')
+    (w.quizNumber === +quizNumber || quizNumber.toString() === 'All')
   );
 });
 
